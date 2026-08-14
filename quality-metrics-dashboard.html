@@ -43,6 +43,11 @@
     tbody tr:nth-child(even) { background: #fafbfc; }
     tbody tr:hover { background: #eef4ff; }
     .block-title { margin: 18px 0 10px; padding-left: 10px; font-size: 15px; font-weight: 600; border-left: 3px solid #1f6feb; }
+    .summary-card { background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%); border: 1px solid #93c5fd; border-radius: 8px; padding: 18px 24px; margin: 0 0 18px; }
+    .summary-title { font-size: 15px; margin: 0 0 12px; color: #1e3a8a; font-weight: 700; }
+    .summary-list { margin: 0; padding-left: 22px; line-height: 1.85; color: #1f2933; font-size: 13px; }
+    .summary-list li { margin-bottom: 6px; }
+    .summary-list strong { color: #1e3a8a; margin-right: 4px; }
     @media (max-width: 900px) { .metrics { grid-template-columns: repeat(1, minmax(180px, 1fr)); } }
   </style>
 </head>
@@ -73,6 +78,16 @@
         <em>323/558</em>
       </div>
     </div>
+    
+    <section class="summary-card">
+      <h2 class="summary-title">📋 数据洞察总结（H2 累计）</h2>
+      <ul class="summary-list">
+        <li><strong>核心结论：</strong>⚠️ H2 三个核心质量指标中 <strong>1/3</strong> 达标，仍有指标需重点关注。</li>
+        <li><strong>指标状态：</strong>❌提测通过率 <strong>84.90%</strong> ≥ 目标 85% / ✅PRD一次通过率 <strong>95.84%</strong> ≥ 目标 95% / ❌提测延期率 <strong>57.89%</strong> ≤ 目标 50%</li>
+        <li><strong>重点关注：</strong>重点关注：<strong>提测延期率</strong>，当前 57.89%，距目标差 <strong>7.89</strong> 个百分点。</li>
+        <li><strong>改进建议：</strong>加强研发自测与冒烟测试覆盖度，未通过冒烟不予提测；优化需求准入评审。 排查排期合理性，建立排期预警与延期红线机制，加强需求粒度管理。</li>
+      </ul>
+    </section>
     <section class="metric-block">
       <div class="chart-head">
         <h2>提测通过率（越高越好，目标85%）</h2>
