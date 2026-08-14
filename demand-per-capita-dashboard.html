@@ -49,6 +49,11 @@
     .target-label { fill: #9ca3af; font-size: 12px; font-weight: 700; paint-order: stroke; stroke: #fff; stroke-width: 4px; }
     .block-title { margin: 24px 0 12px; font-size: 20px; }
     .muted { fill: #9ca3af; font-size: 10px; }
+    .summary-card { background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%); border: 1px solid #34d399; border-radius: 8px; padding: 18px 24px; margin: 18px 0 8px; }
+    .summary-title { font-size: 16px; margin: 0 0 12px; color: #065f46; font-weight: 700; }
+    .summary-list { margin: 0; padding-left: 22px; line-height: 1.85; color: #1f2933; font-size: 13px; }
+    .summary-list li { margin-bottom: 6px; }
+    .summary-list strong { color: #065f46; margin-right: 4px; }
     @media (max-width: 980px) { main, header { padding-left: 16px; padding-right: 16px; } .metric-row, .chart-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -65,6 +70,16 @@
       <h2 class="section-title">二、考核目标</h2>
       <div class="target-card"><span>既定目标：H2每月人均 ≥ 6.25（对比6月基准5.68提升10%）；仅统计已满月数据，当月未满月不纳入累计</span><strong class="good">已达标</strong><span class="unit">对比目标差值 +0.64（+10.24%）</span></div>
     </div>
+    
+    <section class="summary-card">
+      <h2 class="summary-title">📋 数据洞察总结 （当月未满月，未纳入 H2 累计）</h2>
+      <ul class="summary-list">
+        <li><strong>核心结论：</strong>✅ H2 累计月均人均 <strong>6.89</strong> 个/人/月，<strong>已达成</strong> ≥ 6.25 个/人/月目标。</li>
+        <li><strong>周环比：</strong>无数据</li>
+        <li><strong>小组排名：</strong>整体已达目标；小组排名：✅服务质量 6.88 / ✅网络管理 6.5 / ⚠️客户渠道 5.67 / ⚠️中心操作 4.73 / ⚠️财务结算 3.93 / ⚠️数据驾舱 3.9 / ⚠️智慧运力 2.0。</li>
+        <li><strong>改进建议：</strong>维持节奏；排名靠后的小组可借鉴靠前小组的并行测试与排期经验。</li>
+      </ul>
+    </section>
     <h2 class="block-title">累计每周人均需求吞吐</h2>
     <div class="chart-grid">
     <section class="chart-card">
