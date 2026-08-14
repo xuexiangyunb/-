@@ -1,0 +1,1964 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="测试同学">
+  <title>产研一部-质量过程指标周看板</title>
+  <style>
+    body { margin: 0; background: #eef2f7; color: #1f2933; font-family: "Microsoft YaHei", Arial, sans-serif; }
+    header { padding: 18px 28px 14px; background: #fff; border-bottom: 2px solid #1f6feb; }
+    main { max-width: 1240px; margin: 0 auto; padding: 20px 24px 40px; }
+    h1 { margin: 0 0 4px; font-size: 22px; font-weight: 700; }
+    h2 { margin: 0; font-size: 15px; font-weight: 600; }
+    .sub { margin: 0; color: #667085; font-size: 12px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, minmax(200px, 1fr)); gap: 14px; margin-bottom: 18px; }
+    .metric { background: #fff; border: 1px solid #d9e3ee; border-radius: 6px; padding: 14px 16px; border-left: 4px solid #d9e3ee; }
+    .metric.good { border-left-color: #16a34a; }
+    .metric.bad { border-left-color: #dc2626; }
+    .metric span { display: block; color: #667085; font-size: 12px; margin-bottom: 6px; }
+    .metric strong { color: #1f2933; font-size: 28px; font-weight: 700; }
+    .metric em { display: block; color: #667085; font-size: 11px; font-style: normal; margin-top: 4px; }
+    .good { color: #16a34a !important; }
+    .bad { color: #dc2626 !important; }
+    .metric-block { background: #fff; border: 1px solid #d9e3ee; border-radius: 6px; margin-bottom: 16px; overflow: hidden; }
+    .chart-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px 8px; border-bottom: 1px solid #eef2f7; background: #f8fafc; }
+    .chart-head span { color: #667085; font-size: 12px; }
+    .legend { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; color: #667085; font-size: 12px; }
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+    .chart-body { padding: 8px 16px 14px; }
+    svg { max-width: 100%; height: auto; display: block; }
+    svg text { fill: #667085; font-size: 11px; }
+    .axis { stroke: #9aa8b6; stroke-width: 1; }
+    .grid-line { stroke: #eef2f7; stroke-width: 1; }
+    .value-label { font-weight: 700; fill: #1f2933; }
+    .count-label { fill: #667085; font-size: 10px; }
+    .detail-title { margin: 0; padding: 10px 16px; font-size: 13px; font-weight: 600; color: #344054; background: #f8fafc; border-top: 1px solid #eef2f7; border-bottom: 1px solid #eef2f7; }
+    .empty-hint { color: #98a2b3; font-size: 12px; font-weight: normal; margin-left: 8px; }
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th, td { padding: 7px 12px; border-bottom: 1px solid #edf2f7; text-align: left; white-space: nowrap; }
+    th { background: #f8fafc; color: #344054; font-weight: 600; position: sticky; top: 0; }
+    tbody tr:nth-child(even) { background: #fafbfc; }
+    tbody tr:hover { background: #eef4ff; }
+    .block-title { margin: 18px 0 10px; padding-left: 10px; font-size: 15px; font-weight: 600; border-left: 3px solid #1f6feb; }
+    @media (max-width: 900px) { .metrics { grid-template-columns: repeat(1, minmax(180px, 1fr)); } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>产研一部-质量过程指标周看板</h1>
+    <p class="sub">数据范围：2026-07-01 至 2026-08-14（H2至今）</p>
+  </header>
+  <main>
+    <div class="metrics">
+      <div class="metric bad">
+        <span>提测通过率（目标85%）</span>
+        <strong class="bad">84.90%</strong>
+        <em>551/649</em>
+      </div>
+    
+
+      <div class="metric good">
+        <span>PRD一次通过率（目标95%）</span>
+        <strong class="good">95.84%</strong>
+        <em>622/649</em>
+      </div>
+    
+
+      <div class="metric bad">
+        <span>提测延期率（目标50%）</span>
+        <strong class="bad">57.89%</strong>
+        <em>323/558</em>
+      </div>
+    </div>
+    <section class="metric-block">
+      <div class="chart-head">
+        <h2>提测通过率（越高越好，目标85%）</h2>
+        <div class="legend"><span><i style="background:#16a34a"></i>达标</span><span><i style="background:#dc2626"></i>未达标</span></div>
+      </div>
+      <div class="chart-body">
+        <svg viewBox="0 0 1180 420" width="1180" height="420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="提测通过率柱状图">
+          <line x1="70" y1="344.0" x2="1100" y2="344.0" class="grid-line"/><text x="62" y="348.0" text-anchor="end">0%</text><line x1="70" y1="269.0" x2="1100" y2="269.0" class="grid-line"/><text x="62" y="273.0" text-anchor="end">25%</text><line x1="70" y1="194.0" x2="1100" y2="194.0" class="grid-line"/><text x="62" y="198.0" text-anchor="end">50%</text><line x1="70" y1="119.0" x2="1100" y2="119.0" class="grid-line"/><text x="62" y="123.0" text-anchor="end">75%</text><line x1="70" y1="44.0" x2="1100" y2="44.0" class="grid-line"/><text x="62" y="48.0" text-anchor="end">100%</text>
+          <line x1="70" y1="344" x2="1100" y2="344" class="axis"/>
+          <line x1="70" y1="89.0" x2="1100" y2="89.0" stroke="#dc2626" stroke-width="2" stroke-dasharray="7 5"/><text x="1104" y="93.0" style="fill:#dc2626;font-size:11px;font-weight:700">目标85%</text>
+          <rect x="309.0" y="99.1" width="48" height="244.9" fill="#dc2626" rx="3"/><text x="333.0" y="93.1" text-anchor="middle" class="value-label" style="fill:#dc2626">81.6%</text><text x="333.0" y="362.0" text-anchor="middle" class="count-label">W27</text><text x="333.0" y="378.0" text-anchor="middle" class="count-label">40/49</text><rect x="393.0" y="88.8" width="48" height="255.2" fill="#16a34a" rx="3"/><text x="417.0" y="82.8" text-anchor="middle" class="value-label" style="fill:#16a34a">85.1%</text><text x="417.0" y="362.0" text-anchor="middle" class="count-label">W28</text><text x="417.0" y="378.0" text-anchor="middle" class="count-label">74/87</text><rect x="477.0" y="71.4" width="48" height="272.6" fill="#16a34a" rx="3"/><text x="501.0" y="65.4" text-anchor="middle" class="value-label" style="fill:#16a34a">90.8%</text><text x="501.0" y="362.0" text-anchor="middle" class="count-label">W29</text><text x="501.0" y="378.0" text-anchor="middle" class="count-label">129/142</text><rect x="561.0" y="93.5" width="48" height="250.5" fill="#dc2626" rx="3"/><text x="585.0" y="87.5" text-anchor="middle" class="value-label" style="fill:#dc2626">83.5%</text><text x="585.0" y="362.0" text-anchor="middle" class="count-label">W30</text><text x="585.0" y="378.0" text-anchor="middle" class="count-label">91/109</text><rect x="645.0" y="92.2" width="48" height="251.8" fill="#dc2626" rx="3"/><text x="669.0" y="86.2" text-anchor="middle" class="value-label" style="fill:#dc2626">83.9%</text><text x="669.0" y="362.0" text-anchor="middle" class="count-label">W31</text><text x="669.0" y="378.0" text-anchor="middle" class="count-label">94/112</text><rect x="729.0" y="97.2" width="48" height="246.8" fill="#dc2626" rx="3"/><text x="753.0" y="91.2" text-anchor="middle" class="value-label" style="fill:#dc2626">82.3%</text><text x="753.0" y="362.0" text-anchor="middle" class="count-label">W32</text><text x="753.0" y="378.0" text-anchor="middle" class="count-label">65/79</text><rect x="813.0" y="96.7" width="48" height="247.3" fill="#dc2626" rx="3"/><text x="837.0" y="90.7" text-anchor="middle" class="value-label" style="fill:#dc2626">82.4%</text><text x="837.0" y="362.0" text-anchor="middle" class="count-label">W33</text><text x="837.0" y="378.0" text-anchor="middle" class="count-label">61/74</text>
+        </svg>
+      </div>
+    
+<h3 class="detail-title">提测通过率-未达标需求明细<span class="empty-hint">（共106条，展示最近10条）</span></h3><div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>部门</th>
+      <th>需求单号</th>
+      <th>需求标题</th>
+      <th>产品负责人</th>
+      <th>需求状态</th>
+      <th>测试时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>网络终端</td>
+      <td>WGXT1-1342349</td>
+      <td>标签治理二期</td>
+      <td>刘吕琳</td>
+      <td>测试中</td>
+      <td>2026-08-13 09:07:33</td>
+    </tr>
+    <tr>
+      <td>服务质量</td>
+      <td>TXXW-1343694</td>
+      <td>兔小讯支持引用，会话明细字段调整，增加各页面会话记录展示</td>
+      <td>金意卿</td>
+      <td>待发布</td>
+      <td>2026-08-13 08:32:20</td>
+    </tr>
+    <tr>
+      <td>财务结算</td>
+      <td>ZGZC1-1347350</td>
+      <td>【政策结算新引擎】负激励算费逻辑优化</td>
+      <td>王游</td>
+      <td>已发布</td>
+      <td>2026-08-12 15:10:25</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>QQJJ1-1346880</td>
+      <td>计件薪资自动预警</td>
+      <td>张文馨</td>
+      <td>生产验收通过</td>
+      <td>2026-08-11 19:42:38</td>
+    </tr>
+    <tr>
+      <td>网络终端</td>
+      <td>WGXT2-1345256</td>
+      <td>网点管家APP-新增标签履约</td>
+      <td>张明洋</td>
+      <td>已发布</td>
+      <td>2026-08-11 14:30:44</td>
+    </tr>
+    <tr>
+      <td>数据驾舱</td>
+      <td>WGXT2-1345257</td>
+      <td>兔win-虚假签收支持直接下钻明细</td>
+      <td>米亮</td>
+      <td>待产品验收</td>
+      <td>2026-08-11 10:26:00</td>
+    </tr>
+    <tr>
+      <td>网络终端</td>
+      <td>ZGPT-45</td>
+      <td>桃花岛高投诉率客户外场展示</td>
+      <td>刘吕琳</td>
+      <td>已发布</td>
+      <td>2026-08-11 09:24:57</td>
+    </tr>
+    <tr>
+      <td>数据驾舱</td>
+      <td>ZGJX-1336054</td>
+      <td>乡镇解析准确率报表优化</td>
+      <td>董友莉</td>
+      <td>UAT验收</td>
+      <td>2026-08-11 08:13:35</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>ZXSB-1346907</td>
+      <td>网点自动化分拣方案配置</td>
+      <td>朱俊杰</td>
+      <td>待发布</td>
+      <td>2026-08-10 18:38:40</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>ZXSB-1346908</td>
+      <td>网点自动化轨迹配置</td>
+      <td>朱俊杰</td>
+      <td>待发布</td>
+      <td>2026-08-10 18:37:28</td>
+    </tr>
+  </tbody>
+</table></div></section><section class="metric-block">
+      <div class="chart-head">
+        <h2>PRD一次通过率（越高越好，目标95%）</h2>
+        <div class="legend"><span><i style="background:#16a34a"></i>达标</span><span><i style="background:#dc2626"></i>未达标</span></div>
+      </div>
+      <div class="chart-body">
+        <svg viewBox="0 0 1180 420" width="1180" height="420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="PRD一次通过率柱状图">
+          <line x1="70" y1="344.0" x2="1100" y2="344.0" class="grid-line"/><text x="62" y="348.0" text-anchor="end">0%</text><line x1="70" y1="269.0" x2="1100" y2="269.0" class="grid-line"/><text x="62" y="273.0" text-anchor="end">25%</text><line x1="70" y1="194.0" x2="1100" y2="194.0" class="grid-line"/><text x="62" y="198.0" text-anchor="end">50%</text><line x1="70" y1="119.0" x2="1100" y2="119.0" class="grid-line"/><text x="62" y="123.0" text-anchor="end">75%</text><line x1="70" y1="44.0" x2="1100" y2="44.0" class="grid-line"/><text x="62" y="48.0" text-anchor="end">100%</text>
+          <line x1="70" y1="344" x2="1100" y2="344" class="axis"/>
+          <line x1="70" y1="59.0" x2="1100" y2="59.0" stroke="#dc2626" stroke-width="2" stroke-dasharray="7 5"/><text x="1104" y="63.0" style="fill:#dc2626;font-size:11px;font-weight:700">目标95%</text>
+          <rect x="309.0" y="56.2" width="48" height="287.8" fill="#16a34a" rx="3"/><text x="333.0" y="50.2" text-anchor="middle" class="value-label" style="fill:#16a34a">95.9%</text><text x="333.0" y="362.0" text-anchor="middle" class="count-label">W27</text><text x="333.0" y="378.0" text-anchor="middle" class="count-label">47/49</text><rect x="393.0" y="57.8" width="48" height="286.2" fill="#16a34a" rx="3"/><text x="417.0" y="51.8" text-anchor="middle" class="value-label" style="fill:#16a34a">95.4%</text><text x="417.0" y="362.0" text-anchor="middle" class="count-label">W28</text><text x="417.0" y="378.0" text-anchor="middle" class="count-label">83/87</text><rect x="477.0" y="50.3" width="48" height="293.7" fill="#16a34a" rx="3"/><text x="501.0" y="44.3" text-anchor="middle" class="value-label" style="fill:#16a34a">97.9%</text><text x="501.0" y="362.0" text-anchor="middle" class="count-label">W29</text><text x="501.0" y="378.0" text-anchor="middle" class="count-label">139/142</text><rect x="561.0" y="57.8" width="48" height="286.2" fill="#16a34a" rx="3"/><text x="585.0" y="51.8" text-anchor="middle" class="value-label" style="fill:#16a34a">95.4%</text><text x="585.0" y="362.0" text-anchor="middle" class="count-label">W30</text><text x="585.0" y="378.0" text-anchor="middle" class="count-label">104/109</text><rect x="645.0" y="62.8" width="48" height="281.2" fill="#dc2626" rx="3"/><text x="669.0" y="56.8" text-anchor="middle" class="value-label" style="fill:#dc2626">93.8%</text><text x="669.0" y="362.0" text-anchor="middle" class="count-label">W31</text><text x="669.0" y="378.0" text-anchor="middle" class="count-label">105/112</text><rect x="729.0" y="59.2" width="48" height="284.8" fill="#dc2626" rx="3"/><text x="753.0" y="53.2" text-anchor="middle" class="value-label" style="fill:#dc2626">94.9%</text><text x="753.0" y="362.0" text-anchor="middle" class="count-label">W32</text><text x="753.0" y="378.0" text-anchor="middle" class="count-label">75/79</text><rect x="813.0" y="52.1" width="48" height="291.9" fill="#16a34a" rx="3"/><text x="837.0" y="46.1" text-anchor="middle" class="value-label" style="fill:#16a34a">97.3%</text><text x="837.0" y="362.0" text-anchor="middle" class="count-label">W33</text><text x="837.0" y="378.0" text-anchor="middle" class="count-label">72/74</text>
+        </svg>
+      </div>
+    
+<h3 class="detail-title">PRD一次通过率-问题需求明细<span class="empty-hint">（共27条，展示最近10条）</span></h3><div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>部门</th>
+      <th>需求ID</th>
+      <th>需求单号</th>
+      <th>需求标题</th>
+      <th>产品负责人</th>
+      <th>需求状态</th>
+      <th>测试时间</th>
+      <th>需求创建时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>数据驾舱</td>
+      <td>Lgjo6SPX48601917</td>
+      <td>ZGJX-1336054</td>
+      <td>乡镇解析准确率报表优化</td>
+      <td>董友莉</td>
+      <td>UAT验收</td>
+      <td>2026-08-11 08:13:35</td>
+      <td>2026-06-12 17:06:51.385000</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>Lgjo6SPX34877785</td>
+      <td>ZXSB-1346907</td>
+      <td>网点自动化分拣方案配置</td>
+      <td>朱俊杰</td>
+      <td>待发布</td>
+      <td>2026-08-10 18:38:40</td>
+      <td>2026-07-01 18:05:01.729000</td>
+    </tr>
+    <tr>
+      <td>网络管理</td>
+      <td>Lgjo6SPX51092751</td>
+      <td>ZGSP-1300244</td>
+      <td>派签作业提升</td>
+      <td>刘次东</td>
+      <td>待产品验收</td>
+      <td>2026-08-05 20:45:42</td>
+      <td>2026-04-30 15:38:24.789000</td>
+    </tr>
+    <tr>
+      <td>网络管理</td>
+      <td>Lgjo6SPX79621186</td>
+      <td>ZGJX-1347567</td>
+      <td>电联批量履约通话记录逻辑调整</td>
+      <td>刘次东</td>
+      <td>UAT验收</td>
+      <td>2026-08-05 20:44:23</td>
+      <td>2026-06-27 22:24:08.367000</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>Lgjo6SPX37177249</td>
+      <td>ZGWT-1344739</td>
+      <td>包号登记问题件-增加校验规则</td>
+      <td>王春艳</td>
+      <td>已发布</td>
+      <td>2026-08-04 10:18:22</td>
+      <td>2026-07-01 10:42:24.488000</td>
+    </tr>
+    <tr>
+      <td>智慧运力</td>
+      <td>NwdgP7VoXADFNdZx</td>
+      <td>ZGZN-1264777</td>
+      <td>实时静态路由迭代</td>
+      <td>方明扬</td>
+      <td>测试中</td>
+      <td>2026-08-03 16:26:03</td>
+      <td>2026-03-19 18:53:12.250000</td>
+    </tr>
+    <tr>
+      <td>财务结算</td>
+      <td>Lgjo6SPX82487853</td>
+      <td>ZGDC-1326058</td>
+      <td>共享客户清分账单重构（非三大平台）</td>
+      <td>袁叶</td>
+      <td>已发布</td>
+      <td>2026-07-30 16:26:39</td>
+      <td>2026-06-02 17:08:08.604000</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>Lgjo6SPX59669870</td>
+      <td>ZGJX-1313506</td>
+      <td>错分上报优化功能</td>
+      <td>王永彪</td>
+      <td>待发布</td>
+      <td>2026-07-30 11:24:14</td>
+      <td>2026-05-19 15:26:00.408000</td>
+    </tr>
+    <tr>
+      <td>服务质量</td>
+      <td>Lgjo6SPX31332504</td>
+      <td>ZGWG1-1337423</td>
+      <td>【客服角色工作台】进港</td>
+      <td>李超</td>
+      <td>已发布</td>
+      <td>2026-07-28 19:46:42</td>
+      <td>2026-06-15 18:25:03.743000</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>Lgjo6SPX45662421</td>
+      <td>ZGWG-1328361</td>
+      <td>打印与物料管理优化</td>
+      <td>王春艳</td>
+      <td>已发布</td>
+      <td>2026-07-28 15:13:05</td>
+      <td>2026-06-04 16:56:54.991000</td>
+    </tr>
+  </tbody>
+</table></div></section><section class="metric-block">
+      <div class="chart-head">
+        <h2>提测延期率（越低越好，目标50%）</h2>
+        <div class="legend"><span><i style="background:#16a34a"></i>达标</span><span><i style="background:#dc2626"></i>未达标</span></div>
+      </div>
+      <div class="chart-body">
+        <svg viewBox="0 0 1180 420" width="1180" height="420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="提测延期率柱状图">
+          <line x1="70" y1="344.0" x2="1100" y2="344.0" class="grid-line"/><text x="62" y="348.0" text-anchor="end">0%</text><line x1="70" y1="269.0" x2="1100" y2="269.0" class="grid-line"/><text x="62" y="273.0" text-anchor="end">25%</text><line x1="70" y1="194.0" x2="1100" y2="194.0" class="grid-line"/><text x="62" y="198.0" text-anchor="end">50%</text><line x1="70" y1="119.0" x2="1100" y2="119.0" class="grid-line"/><text x="62" y="123.0" text-anchor="end">75%</text><line x1="70" y1="44.0" x2="1100" y2="44.0" class="grid-line"/><text x="62" y="48.0" text-anchor="end">100%</text>
+          <line x1="70" y1="344" x2="1100" y2="344" class="axis"/>
+          <line x1="70" y1="194.0" x2="1100" y2="194.0" stroke="#dc2626" stroke-width="2" stroke-dasharray="7 5"/><text x="1104" y="198.0" style="fill:#dc2626;font-size:11px;font-weight:700">目标50%</text>
+          <rect x="309.0" y="146.9" width="48" height="197.1" fill="#dc2626" rx="3"/><text x="333.0" y="140.9" text-anchor="middle" class="value-label" style="fill:#dc2626">65.7%</text><text x="333.0" y="362.0" text-anchor="middle" class="count-label">W27</text><text x="333.0" y="378.0" text-anchor="middle" class="count-label">23/35</text><rect x="393.0" y="181.5" width="48" height="162.5" fill="#dc2626" rx="3"/><text x="417.0" y="175.5" text-anchor="middle" class="value-label" style="fill:#dc2626">54.2%</text><text x="417.0" y="362.0" text-anchor="middle" class="count-label">W28</text><text x="417.0" y="378.0" text-anchor="middle" class="count-label">39/72</text><rect x="477.0" y="217.8" width="48" height="126.2" fill="#16a34a" rx="3"/><text x="501.0" y="211.8" text-anchor="middle" class="value-label" style="fill:#16a34a">42.1%</text><text x="501.0" y="362.0" text-anchor="middle" class="count-label">W29</text><text x="501.0" y="378.0" text-anchor="middle" class="count-label">53/126</text><rect x="561.0" y="120.7" width="48" height="223.3" fill="#dc2626" rx="3"/><text x="585.0" y="114.7" text-anchor="middle" class="value-label" style="fill:#dc2626">74.4%</text><text x="585.0" y="362.0" text-anchor="middle" class="count-label">W30</text><text x="585.0" y="378.0" text-anchor="middle" class="count-label">67/90</text><rect x="645.0" y="159.6" width="48" height="184.4" fill="#dc2626" rx="3"/><text x="669.0" y="153.6" text-anchor="middle" class="value-label" style="fill:#dc2626">61.5%</text><text x="669.0" y="362.0" text-anchor="middle" class="count-label">W31</text><text x="669.0" y="378.0" text-anchor="middle" class="count-label">59/96</text><rect x="729.0" y="159.7" width="48" height="184.3" fill="#dc2626" rx="3"/><text x="753.0" y="153.7" text-anchor="middle" class="value-label" style="fill:#dc2626">61.4%</text><text x="753.0" y="362.0" text-anchor="middle" class="count-label">W32</text><text x="753.0" y="378.0" text-anchor="middle" class="count-label">43/70</text><rect x="813.0" y="174.4" width="48" height="169.6" fill="#dc2626" rx="3"/><text x="837.0" y="168.4" text-anchor="middle" class="value-label" style="fill:#dc2626">56.5%</text><text x="837.0" y="362.0" text-anchor="middle" class="count-label">W33</text><text x="837.0" y="378.0" text-anchor="middle" class="count-label">39/69</text>
+        </svg>
+      </div>
+    
+<h3 class="detail-title">提测延期率-延期需求明细<span class="empty-hint">（共323条，展示最近10条）</span></h3><div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>部门</th>
+      <th>需求单号</th>
+      <th>需求ID</th>
+      <th>需求标题</th>
+      <th>产品负责人</th>
+      <th>需求状态</th>
+      <th>排期时间</th>
+      <th>计划提测时间</th>
+      <th>实际待测试时间</th>
+      <th>正式入测试时间</th>
+      <th>延期天数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>服务质量</td>
+      <td>ZGJX-1351333</td>
+      <td>Lgjo6SPX22214935</td>
+      <td>1小时极速理赔报表口径调整</td>
+      <td>田瑶</td>
+      <td>测试中</td>
+      <td>2026-07-29 10:13:00</td>
+      <td>2026-08-12 20:00:00</td>
+      <td>2026-08-13 21:30:53</td>
+      <td>2026-08-13 21:30:55</td>
+      <td>1.06</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>QQJJ-1344539</td>
+      <td>7Uhv8nXFJlbA5tdy</td>
+      <td>泰国劳务工优化需求-考勤管理</td>
+      <td>吴支华</td>
+      <td>UAT验收</td>
+      <td>2026-08-11 16:20:14</td>
+      <td>2026-08-04 20:00:00</td>
+      <td>2026-08-13 10:16:47</td>
+      <td>2026-08-13 11:09:19</td>
+      <td>8.59</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>QQJJ-1344554</td>
+      <td>7Uhv8nXF213agkbd</td>
+      <td>泰国劳务工优化需求-劳务管理</td>
+      <td>吴支华</td>
+      <td>待发布</td>
+      <td>2026-08-11 16:19:20</td>
+      <td>2026-08-05 20:00:00</td>
+      <td>2026-08-13 11:09:04</td>
+      <td>2026-08-13 11:09:07</td>
+      <td>7.63</td>
+    </tr>
+    <tr>
+      <td>中心操作</td>
+      <td>QQJJ-1347062</td>
+      <td>7Uhv8nXFEVWUq8pi</td>
+      <td>【菲律宾】劳务工系统部署</td>
+      <td>吴支华</td>
+      <td>UAT验收</td>
+      <td>2026-08-11 16:28:43</td>
+      <td>2026-08-10 20:00:00</td>
+      <td>2026-08-13 11:08:50</td>
+      <td>2026-08-13 11:08:53</td>
+      <td>2.63</td>
+    </tr>
+    <tr>
+      <td>客户渠道</td>
+      <td>ZGSZ-1341414</td>
+      <td>Lgjo6SPX12933908</td>
+      <td>总部/代理区销售商机看板</td>
+      <td>龚杰文</td>
+      <td>测试中</td>
+      <td>2026-07-29 18:02:49</td>
+      <td>2026-07-13 20:00:00</td>
+      <td>2026-08-13 08:51:08</td>
+      <td>2026-08-13 08:51:14</td>
+      <td>30.54</td>
+    </tr>
+    <tr>
+      <td>服务质量</td>
+      <td>TXXW-1343694</td>
+      <td>Lgjo6SPX26547129</td>
+      <td>兔小讯支持引用，会话明细字段调整，增加各页面会话记录展示</td>
+      <td>金意卿</td>
+      <td>待发布</td>
+      <td>2026-07-23 08:24:05</td>
+      <td>2026-07-31 20:00:00</td>
+      <td>2026-08-13 08:27:54</td>
+      <td>2026-08-13 08:32:20</td>
+      <td>12.52</td>
+    </tr>
+    <tr>
+      <td>数据驾舱</td>
+      <td>ZGJX-1334218</td>
+      <td>Lgjo6SPX38733327</td>
+      <td>中心集货到件漏到件拆分</td>
+      <td>肖剑雄</td>
+      <td>待产品验收</td>
+      <td>2026-07-20 08:34:28</td>
+      <td>2026-08-11 20:00:00</td>
+      <td>2026-08-12 15:48:19</td>
+      <td>2026-08-12 15:48:24</td>
+      <td>0.83</td>
+    </tr>
+    <tr>
+      <td>财务结算</td>
+      <td>ZGZC1-1347350</td>
+      <td>Lgjo6SPXHzDwbuwl</td>
+      <td>【政策结算新引擎】负激励算费逻辑优化</td>
+      <td>王游</td>
+      <td>已发布</td>
+      <td>2026-08-12 15:10:11</td>
+      <td>2026-07-31 20:00:00</td>
+      <td>2026-08-12 15:10:22</td>
+      <td>2026-08-12 15:10:25</td>
+      <td>11.80</td>
+    </tr>
+    <tr>
+      <td>财务结算</td>
+      <td>ZGZC1-1347416</td>
+      <td>Lgjo6SPX63657354</td>
+      <td>【政策结算引擎】浙江代理区优化需求5个 -L0</td>
+      <td>王游</td>
+      <td>已发布</td>
+      <td>2026-08-12 15:08:49</td>
+      <td>2026-07-31 20:00:00</td>
+      <td>2026-08-12 15:09:03</td>
+      <td>2026-08-12 15:09:07</td>
+      <td>11.80</td>
+    </tr>
+    <tr>
+      <td>网络管理</td>
+      <td>ZGWD-1325333</td>
+      <td>Lgjo6SPX90882746</td>
+      <td>单号增加跳转快件跟踪</td>
+      <td>张明洋</td>
+      <td>已发布</td>
+      <td>2026-08-11 14:05:23</td>
+      <td>2026-07-28 20:00:00</td>
+      <td>2026-08-12 14:28:33</td>
+      <td>2026-08-12 14:47:27</td>
+      <td>14.77</td>
+    </tr>
+  </tbody>
+</table></div></section>
+    <h2 class="block-title">每周小组指标明细</h2>
+    <section class="metric-block"><div class="table-wrap"><table class="dataframe data-table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>指标</th>
+      <th>周序号</th>
+      <th>周标签</th>
+      <th>周</th>
+      <th>小组</th>
+      <th>分母</th>
+      <th>分子</th>
+      <th>指标值</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>中心操作</td>
+      <td>25</td>
+      <td>24</td>
+      <td>96.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>中心操作</td>
+      <td>22</td>
+      <td>11</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>中心操作</td>
+      <td>25</td>
+      <td>21</td>
+      <td>84.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>客户渠道</td>
+      <td>9</td>
+      <td>9</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>客户渠道</td>
+      <td>8</td>
+      <td>4</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>客户渠道</td>
+      <td>9</td>
+      <td>9</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>数据驾舱</td>
+      <td>8</td>
+      <td>7</td>
+      <td>87.50</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>数据驾舱</td>
+      <td>8</td>
+      <td>4</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>数据驾舱</td>
+      <td>8</td>
+      <td>5</td>
+      <td>62.50</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>智慧运力</td>
+      <td>3</td>
+      <td>3</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>智慧运力</td>
+      <td>3</td>
+      <td>3</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>智慧运力</td>
+      <td>3</td>
+      <td>3</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>服务质量</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>服务质量</td>
+      <td>3</td>
+      <td>2</td>
+      <td>66.67</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>服务质量</td>
+      <td>4</td>
+      <td>3</td>
+      <td>75.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>网络管理</td>
+      <td>15</td>
+      <td>15</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>网络管理</td>
+      <td>15</td>
+      <td>11</td>
+      <td>73.33</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>网络管理</td>
+      <td>15</td>
+      <td>12</td>
+      <td>80.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>财务结算</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>财务结算</td>
+      <td>10</td>
+      <td>4</td>
+      <td>40.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>33</td>
+      <td>W33</td>
+      <td>2026-08-10 ~ 2026-08-16</td>
+      <td>财务结算</td>
+      <td>10</td>
+      <td>8</td>
+      <td>80.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>中心操作</td>
+      <td>22</td>
+      <td>21</td>
+      <td>95.45</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>中心操作</td>
+      <td>19</td>
+      <td>9</td>
+      <td>47.37</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>中心操作</td>
+      <td>22</td>
+      <td>18</td>
+      <td>81.82</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>客户渠道</td>
+      <td>6</td>
+      <td>6</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>客户渠道</td>
+      <td>6</td>
+      <td>6</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>客户渠道</td>
+      <td>6</td>
+      <td>4</td>
+      <td>66.67</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>数据驾舱</td>
+      <td>7</td>
+      <td>7</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>数据驾舱</td>
+      <td>8</td>
+      <td>5</td>
+      <td>62.50</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>数据驾舱</td>
+      <td>7</td>
+      <td>6</td>
+      <td>85.71</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>智慧运力</td>
+      <td>9</td>
+      <td>8</td>
+      <td>88.89</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>智慧运力</td>
+      <td>6</td>
+      <td>5</td>
+      <td>83.33</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>智慧运力</td>
+      <td>9</td>
+      <td>9</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>服务质量</td>
+      <td>15</td>
+      <td>15</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>服务质量</td>
+      <td>14</td>
+      <td>12</td>
+      <td>85.71</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>服务质量</td>
+      <td>15</td>
+      <td>12</td>
+      <td>80.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>网络管理</td>
+      <td>10</td>
+      <td>8</td>
+      <td>80.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>网络管理</td>
+      <td>10</td>
+      <td>1</td>
+      <td>10.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>网络管理</td>
+      <td>10</td>
+      <td>8</td>
+      <td>80.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>财务结算</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>财务结算</td>
+      <td>7</td>
+      <td>5</td>
+      <td>71.43</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>32</td>
+      <td>W32</td>
+      <td>2026-08-03 ~ 2026-08-09</td>
+      <td>财务结算</td>
+      <td>10</td>
+      <td>8</td>
+      <td>80.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>中心操作</td>
+      <td>19</td>
+      <td>16</td>
+      <td>84.21</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>中心操作</td>
+      <td>17</td>
+      <td>12</td>
+      <td>70.59</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>中心操作</td>
+      <td>19</td>
+      <td>16</td>
+      <td>84.21</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>客户渠道</td>
+      <td>15</td>
+      <td>15</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>客户渠道</td>
+      <td>14</td>
+      <td>7</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>客户渠道</td>
+      <td>15</td>
+      <td>15</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>数据驾舱</td>
+      <td>18</td>
+      <td>17</td>
+      <td>94.44</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>数据驾舱</td>
+      <td>17</td>
+      <td>12</td>
+      <td>70.59</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>数据驾舱</td>
+      <td>18</td>
+      <td>15</td>
+      <td>83.33</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>智慧运力</td>
+      <td>21</td>
+      <td>21</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>智慧运力</td>
+      <td>14</td>
+      <td>10</td>
+      <td>71.43</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>智慧运力</td>
+      <td>21</td>
+      <td>19</td>
+      <td>90.48</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>服务质量</td>
+      <td>13</td>
+      <td>12</td>
+      <td>92.31</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>服务质量</td>
+      <td>11</td>
+      <td>8</td>
+      <td>72.73</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>服务质量</td>
+      <td>13</td>
+      <td>10</td>
+      <td>76.92</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>网络管理</td>
+      <td>13</td>
+      <td>12</td>
+      <td>92.31</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>网络管理</td>
+      <td>13</td>
+      <td>5</td>
+      <td>38.46</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>网络管理</td>
+      <td>13</td>
+      <td>10</td>
+      <td>76.92</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>财务结算</td>
+      <td>13</td>
+      <td>12</td>
+      <td>92.31</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>财务结算</td>
+      <td>10</td>
+      <td>5</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>31</td>
+      <td>W31</td>
+      <td>2026-07-27 ~ 2026-08-02</td>
+      <td>财务结算</td>
+      <td>13</td>
+      <td>9</td>
+      <td>69.23</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>中心操作</td>
+      <td>36</td>
+      <td>36</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>中心操作</td>
+      <td>34</td>
+      <td>24</td>
+      <td>70.59</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>中心操作</td>
+      <td>36</td>
+      <td>32</td>
+      <td>88.89</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>客户渠道</td>
+      <td>9</td>
+      <td>8</td>
+      <td>88.89</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>客户渠道</td>
+      <td>6</td>
+      <td>4</td>
+      <td>66.67</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>客户渠道</td>
+      <td>9</td>
+      <td>7</td>
+      <td>77.78</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>数据驾舱</td>
+      <td>12</td>
+      <td>9</td>
+      <td>75.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>数据驾舱</td>
+      <td>10</td>
+      <td>9</td>
+      <td>90.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>数据驾舱</td>
+      <td>12</td>
+      <td>6</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>智慧运力</td>
+      <td>5</td>
+      <td>5</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>智慧运力</td>
+      <td>3</td>
+      <td>2</td>
+      <td>66.67</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>智慧运力</td>
+      <td>5</td>
+      <td>5</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>服务质量</td>
+      <td>22</td>
+      <td>21</td>
+      <td>95.45</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>服务质量</td>
+      <td>18</td>
+      <td>16</td>
+      <td>88.89</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>服务质量</td>
+      <td>22</td>
+      <td>17</td>
+      <td>77.27</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>网络管理</td>
+      <td>12</td>
+      <td>12</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>网络管理</td>
+      <td>12</td>
+      <td>6</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>网络管理</td>
+      <td>12</td>
+      <td>11</td>
+      <td>91.67</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>财务结算</td>
+      <td>13</td>
+      <td>13</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>财务结算</td>
+      <td>7</td>
+      <td>6</td>
+      <td>85.71</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>30</td>
+      <td>W30</td>
+      <td>2026-07-20 ~ 2026-07-26</td>
+      <td>财务结算</td>
+      <td>13</td>
+      <td>13</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>中心操作</td>
+      <td>31</td>
+      <td>30</td>
+      <td>96.77</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>中心操作</td>
+      <td>28</td>
+      <td>10</td>
+      <td>35.71</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>中心操作</td>
+      <td>31</td>
+      <td>27</td>
+      <td>87.10</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>客户渠道</td>
+      <td>9</td>
+      <td>9</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>客户渠道</td>
+      <td>9</td>
+      <td>8</td>
+      <td>88.89</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>客户渠道</td>
+      <td>9</td>
+      <td>9</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>数据驾舱</td>
+      <td>15</td>
+      <td>15</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>数据驾舱</td>
+      <td>14</td>
+      <td>6</td>
+      <td>42.86</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>数据驾舱</td>
+      <td>15</td>
+      <td>13</td>
+      <td>86.67</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>智慧运力</td>
+      <td>7</td>
+      <td>7</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>智慧运力</td>
+      <td>6</td>
+      <td>5</td>
+      <td>83.33</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>智慧运力</td>
+      <td>7</td>
+      <td>7</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>服务质量</td>
+      <td>47</td>
+      <td>46</td>
+      <td>97.87</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>服务质量</td>
+      <td>40</td>
+      <td>12</td>
+      <td>30.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>服务质量</td>
+      <td>47</td>
+      <td>42</td>
+      <td>89.36</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>网络管理</td>
+      <td>23</td>
+      <td>23</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>网络管理</td>
+      <td>22</td>
+      <td>7</td>
+      <td>31.82</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>网络管理</td>
+      <td>23</td>
+      <td>21</td>
+      <td>91.30</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>财务结算</td>
+      <td>10</td>
+      <td>9</td>
+      <td>90.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>财务结算</td>
+      <td>7</td>
+      <td>5</td>
+      <td>71.43</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>29</td>
+      <td>W29</td>
+      <td>2026-07-13 ~ 2026-07-19</td>
+      <td>财务结算</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>中心操作</td>
+      <td>24</td>
+      <td>23</td>
+      <td>95.83</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>中心操作</td>
+      <td>22</td>
+      <td>15</td>
+      <td>68.18</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>中心操作</td>
+      <td>24</td>
+      <td>21</td>
+      <td>87.50</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>客户渠道</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>客户渠道</td>
+      <td>8</td>
+      <td>5</td>
+      <td>62.50</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>客户渠道</td>
+      <td>10</td>
+      <td>10</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>数据驾舱</td>
+      <td>8</td>
+      <td>7</td>
+      <td>87.50</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>数据驾舱</td>
+      <td>8</td>
+      <td>3</td>
+      <td>37.50</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>数据驾舱</td>
+      <td>8</td>
+      <td>7</td>
+      <td>87.50</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>智慧运力</td>
+      <td>9</td>
+      <td>9</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>智慧运力</td>
+      <td>5</td>
+      <td>3</td>
+      <td>60.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>智慧运力</td>
+      <td>9</td>
+      <td>9</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>服务质量</td>
+      <td>18</td>
+      <td>17</td>
+      <td>94.44</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>服务质量</td>
+      <td>14</td>
+      <td>5</td>
+      <td>35.71</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>服务质量</td>
+      <td>18</td>
+      <td>15</td>
+      <td>83.33</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>网络管理</td>
+      <td>9</td>
+      <td>8</td>
+      <td>88.89</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>网络管理</td>
+      <td>8</td>
+      <td>4</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>网络管理</td>
+      <td>9</td>
+      <td>6</td>
+      <td>66.67</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>财务结算</td>
+      <td>9</td>
+      <td>9</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>财务结算</td>
+      <td>7</td>
+      <td>4</td>
+      <td>57.14</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>28</td>
+      <td>W28</td>
+      <td>2026-07-06 ~ 2026-07-12</td>
+      <td>财务结算</td>
+      <td>9</td>
+      <td>6</td>
+      <td>66.67</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>中心操作</td>
+      <td>13</td>
+      <td>13</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>中心操作</td>
+      <td>13</td>
+      <td>10</td>
+      <td>76.92</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>中心操作</td>
+      <td>13</td>
+      <td>11</td>
+      <td>84.62</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>客户渠道</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>客户渠道</td>
+      <td>4</td>
+      <td>2</td>
+      <td>50.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>客户渠道</td>
+      <td>4</td>
+      <td>4</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>数据驾舱</td>
+      <td>6</td>
+      <td>6</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>数据驾舱</td>
+      <td>4</td>
+      <td>0</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>数据驾舱</td>
+      <td>6</td>
+      <td>4</td>
+      <td>66.67</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>智慧运力</td>
+      <td>2</td>
+      <td>2</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>智慧运力</td>
+      <td>1</td>
+      <td>1</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>智慧运力</td>
+      <td>2</td>
+      <td>2</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>服务质量</td>
+      <td>7</td>
+      <td>7</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>服务质量</td>
+      <td>3</td>
+      <td>2</td>
+      <td>66.67</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>服务质量</td>
+      <td>7</td>
+      <td>6</td>
+      <td>85.71</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>网络管理</td>
+      <td>5</td>
+      <td>5</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>网络管理</td>
+      <td>5</td>
+      <td>5</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>网络管理</td>
+      <td>5</td>
+      <td>4</td>
+      <td>80.00</td>
+    </tr>
+    <tr>
+      <td>PRD一次通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>财务结算</td>
+      <td>12</td>
+      <td>10</td>
+      <td>83.33</td>
+    </tr>
+    <tr>
+      <td>提测延期率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>财务结算</td>
+      <td>5</td>
+      <td>3</td>
+      <td>60.00</td>
+    </tr>
+    <tr>
+      <td>提测通过率</td>
+      <td>27</td>
+      <td>W27</td>
+      <td>2026-06-29 ~ 2026-07-05</td>
+      <td>财务结算</td>
+      <td>12</td>
+      <td>9</td>
+      <td>75.00</td>
+    </tr>
+  </tbody>
+</table></div></section>
+  </main>
+</body>
+</html>
