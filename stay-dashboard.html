@@ -76,6 +76,11 @@
     .req-table td.req-total { color: #ef3b45; font-weight: 600; }
     .req-table td.over-diff { color: #ef3b45; font-weight: 700; }
     .no-over-req { font-size: 11px; color: #9ca3af; padding: 4px 10px; margin-bottom: 8px; font-style: italic; }
+    .summary-card { background: linear-gradient(135deg, #fefce8 0%, #ffffff 100%); border: 1px solid #facc15; border-radius: 8px; padding: 18px 24px; margin: 18px 0 8px; }
+    .summary-title { font-size: 16px; margin: 0 0 12px; color: #92400e; font-weight: 700; }
+    .summary-list { margin: 0; padding-left: 22px; line-height: 1.85; color: #1f2933; font-size: 13px; }
+    .summary-list li { margin-bottom: 6px; }
+    .summary-list strong { color: #92400e; margin-right: 4px; }
     @media (max-width: 980px) { main, header { padding-left: 16px; padding-right: 16px; } .metric-row, .chart-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -102,6 +107,16 @@
       <h2 class="section-title">三、考核目标</h2>
       <div class="target-card"><span>既定目标：H2累计平均测试停留 ≤ 2.7（6月基准3.18下降15%）；仅统计已满月数据，当月未满月不纳入累计</span><strong class="bad">未达标</strong><span class="unit">对比目标差值 +1.84（+68.15%）</span></div>
     </div>
+    
+    <section class="summary-card">
+      <h2 class="summary-title">📋 数据洞察总结 （当月未满月，未纳入 H2 累计）</h2>
+      <ul class="summary-list">
+        <li><strong>核心结论：</strong>⚠️ 当前 H2 累计平均测试停留 <strong>4.54</strong> 天，<strong>未达成</strong> ≤ 2.7 天目标（差 <strong>1.84</strong> 天）。</li>
+        <li><strong>月度趋势：</strong>7月 4.54天 vs 6月基准 3.2天（<strong>+41.9%</strong>） → 8月 4.83天 vs 6月基准 3.2天（<strong>+50.9%</strong>）</li>
+        <li><strong>风险/亮点：</strong>近 11 周中有 <strong>11</strong> 周未达标，占比 <strong>100%</strong>，需重点跟进。</li>
+        <li><strong>改进建议：</strong>建议复盘未达标周的需求特征（密集提测/复杂业务）和对应小组，针对性优化测试排期、人员配比与需求准入评审。</li>
+      </ul>
+    </section>
     <h2 class="block-title">累计每周测试停留</h2>
     <div class="chart-grid">
     <section class="chart-card">
