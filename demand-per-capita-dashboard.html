@@ -49,6 +49,11 @@
     .target-label { fill: #9ca3af; font-size: 12px; font-weight: 700; paint-order: stroke; stroke: #fff; stroke-width: 4px; }
     .block-title { margin: 24px 0 12px; font-size: 20px; }
     .muted { fill: #9ca3af; font-size: 10px; }
+    .summary-card { background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%); border: 1px solid #34d399; border-radius: 8px; padding: 18px 24px; margin: 18px 0 8px; }
+    .summary-title { font-size: 16px; margin: 0 0 12px; color: #065f46; font-weight: 700; }
+    .summary-list { margin: 0; padding-left: 22px; line-height: 1.85; color: #1f2933; font-size: 13px; }
+    .summary-list li { margin-bottom: 6px; }
+    .summary-list strong { color: #065f46; margin-right: 4px; }
     @media (max-width: 980px) { main, header { padding-left: 16px; padding-right: 16px; } .metric-row, .chart-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -70,6 +75,17 @@
         </div>
       </div>
     </div>
+    
+    <section class="summary-card">
+      <h2 class="summary-title">📋 数据洞察总结 （当月未满月，未纳入考核）</h2>
+      <ul class="summary-list">
+        <li><strong>核心结论：</strong>⚠️ 小组达标情况分化：<strong>0</strong> 个小组全月份达标，<strong>4</strong> 个部分月份达标，<strong>3</strong> 个全月份未达标。</li>
+        <li><strong>周环比：</strong>本周人均 <strong>1.31</strong> vs 上周 <strong>1.17</strong>（<strong>+12.0%</strong>）</li>
+        <li><strong>小组月度排名：</strong>⚠1/2 服务质量（7月10.75 / 8月3.0） → ⚠1/2 网络管理（7月9.8 / 8月3.2） → ⚠1/2 客户渠道（7月8.0 / 8月3.33） → ⚠1/2 中心操作（7月6.5 / 8月2.71） → ❌全未达 财务结算（7月5.71 / 8月2.14） → ❌全未达 数据驾舱（7月5.4 / 8月2.4） → ❌全未达 智慧运力（7月3.25 / 8月1.0）</li>
+        <li><strong>风险/亮点：</strong>全月份未达标的小组：<strong>财务结算、数据驾舱、智慧运力</strong>；部分月份达标：<strong>服务质量、网络管理、客户渠道、中心操作</strong>。</li>
+        <li><strong>改进建议：</strong>重点跟进：<strong>财务结算、数据驾舱、智慧运力、服务质量、网络管理、客户渠道、中心操作</strong>；建议核查这些小组各月需求排期、人员配比与跨小组协同瓶颈。</li>
+      </ul>
+    </section>
     <h2 class="block-title">累计每周人均需求吞吐</h2>
     <div class="chart-grid">
     <section class="chart-card">
