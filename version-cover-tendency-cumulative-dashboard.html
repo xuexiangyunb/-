@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="测试同学">
+  <title>产研一部-版本周累计覆盖率看板</title>
+  <style>
+    body { margin:0; background:#f4f6f8; color:#27313b; font-family:"Microsoft YaHei",Arial,sans-serif; }
+    header { padding:22px 30px; background:#fff; border-bottom:1px solid #d9e0e7; }
+    main { padding:24px 30px 40px; }
+    h1 { margin:0; font-size:24px; }
+    h2 { margin:24px 0 14px; font-size:18px; }
+    .meta { margin:0 0 18px; color:#667085; font-size:13px; }
+    .summary { display:flex; gap:12px; margin:0 0 22px; flex-wrap:wrap; }
+    .metric { background:#fff; border:1px solid #d9e0e7; padding:13px 18px; min-width:170px; }
+    .metric span { display:block; color:#667085; font-size:12px; margin-bottom:6px; }
+    .metric strong { font-size:22px; color:#27313b; }
+    .table-wrap { overflow-x:auto; background:#fff; border:1px solid #d9e0e7; margin-bottom:24px; }
+    table { border-collapse:collapse; min-width:1100px; width:100%; }
+    th, td { border:1px solid #d9e0e7; padding:10px 9px; text-align:center; white-space:nowrap; }
+    thead th { background:#eef2f5; font-weight:700; }
+    thead th:first-child, tbody th { text-align:left; padding-left:16px; color:#078b87; font-weight:700; background:#f7f8fa; }
+    tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background:#f7fafb; }
+    .good { color:#16803c; background:#eaf7ee; font-weight:700; }
+    .warn { color:#b76e00; background:#fff7e6; font-weight:700; }
+    .bad { color:#d92d20; background:#fff0ef; font-weight:700; }
+    .muted { color:#8b96a3; background:#fafbfc; }
+    .date { color:#667085; font-size:11px; }
+    .metric-cell { background:#f8fafc; font-weight:700; }
+    .avg { background:#eef2f5; font-weight:700; }
+    .target-cell { font-size:11px; font-weight:600; }
+    .legend { color:#667085; font-size:12px; }
+    @media (max-width:800px) { header, main { padding-left:14px; padding-right:14px; } }
+  </style>
+</head>
+<body>
+  <header><h1>产研一部-版本周累计覆盖率看板</h1></header>
+  <main>
+    <p class="meta">数据源：问天平台 <code>versionCoverTendency</code> 接口；查询区间 <strong>2026-07-01 ~ 2026-09-10</strong>；累计口径：<strong>从 W27（2026-07-01）起到当前周为止的所有字节数加权累计</strong>。达标阈值：&ge;80% 视为达标。</p>
+    
+    <div class="summary">
+      <div class="metric"><span>最新累计周</span><strong>202636</strong></div>
+      <div class="metric"><span>累计覆盖率（产研一部）</span><strong class="bad">73.04%</strong></div>
+      <div class="metric"><span>W27 首周累计覆盖率</span><strong class="warn">77.86%</strong></div>
+      <div class="metric"><span>累计未覆盖字节</span><strong>513,127</strong></div>
+      <div class="metric"><span>累计总字节数</span><strong>1,903,452</strong></div>
+    </div>
+
+    <h2>中心累计覆盖率趋势（产研一部）</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>周</th><th>区间</th><th>当周覆盖率</th><th>累计覆盖率</th><th>累计总字节</th><th>累计未覆盖字节</th><th>达标</th></tr></thead>
+      <tbody><tr><th>202627</th><td class="date">2026-06-29 ~ 2026-07-05</td><td class="warn">77.86%</td><td class="metric-cell">77.86%</td><td>301,228</td><td>66,681</td><td class="target-cell bad">未达标</td></tr><tr><th>202628</th><td class="date">2026-07-06 ~ 2026-07-12</td><td class="warn">75.48%</td><td class="metric-cell">77.17%</td><td>424,015</td><td>96,783</td><td class="target-cell bad">未达标</td></tr><tr><th>202629</th><td class="date">2026-07-13 ~ 2026-07-19</td><td class="warn">76.17%</td><td class="metric-cell">76.93%</td><td>563,533</td><td>130,031</td><td class="target-cell bad">未达标</td></tr><tr><th>202630</th><td class="date">2026-07-20 ~ 2026-07-26</td><td class="warn">75.13%</td><td class="metric-cell">76.45%</td><td>766,681</td><td>180,564</td><td class="target-cell bad">未达标</td></tr><tr><th>202631</th><td class="date">2026-07-27 ~ 2026-08-02</td><td class="warn">74.57%</td><td class="metric-cell">76.00%</td><td>1,005,913</td><td>241,398</td><td class="target-cell bad">未达标</td></tr><tr><th>202632</th><td class="date">2026-08-03 ~ 2026-08-09</td><td class="warn">77.16%</td><td class="metric-cell">76.15%</td><td>1,155,390</td><td>275,533</td><td class="target-cell bad">未达标</td></tr><tr><th>202633</th><td class="date">2026-08-10 ~ 2026-08-16</td><td class="bad">68.14%</td><td class="metric-cell">74.98%</td><td>1,354,164</td><td>338,872</td><td class="target-cell bad">未达标</td></tr><tr><th>202634</th><td class="date">2026-08-17 ~ 2026-08-23</td><td class="bad">66.73%</td><td class="metric-cell">73.94%</td><td>1,549,500</td><td>403,853</td><td class="target-cell bad">未达标</td></tr><tr><th>202635</th><td class="date">2026-08-24 ~ 2026-08-30</td><td class="warn">72.65%</td><td class="metric-cell">73.73%</td><td>1,841,320</td><td>483,669</td><td class="target-cell bad">未达标</td></tr><tr><th>202636</th><td class="date">2026-08-31 ~ 2026-09-06</td><td class="bad">52.59%</td><td class="metric-cell">73.04%</td><td>1,903,452</td><td>513,127</td><td class="target-cell bad">未达标</td></tr></tbody>
+    </table></div>
+
+    <h2>部门 × 周 累计覆盖率矩阵（最新周在前）</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>中心 / 部门</th><th>202636</th><th>202635</th><th>202634</th><th>202633</th><th>202632</th><th>202631</th><th>202630</th><th>202629</th><th>202628</th><th>202627</th><th>末周累计</th></tr></thead>
+      <tbody>
+        <tr><th>产研一部汇总</th><td class="bad">73.04%</td><td class="bad">73.73%</td><td class="bad">73.94%</td><td class="bad">74.98%</td><td class="bad">76.15%</td><td class="bad">76.00%</td><td class="bad">76.45%</td><td class="bad">76.93%</td><td class="bad">77.17%</td><td class="bad">77.86%</td><td class="avg bad">73.04%</td></tr>
+        <tr><th>服务质量</th><td class="bad">72.59%</td><td class="bad">72.59%</td><td class="bad">72.27%</td><td class="bad">71.82%</td><td class="bad">71.79%</td><td class="bad">70.91%</td><td class="bad">70.82%</td><td class="bad">72.54%</td><td class="bad">71.43%</td><td class="bad">70.44%</td><td class="avg bad">72.59%</td></tr><tr><th>中心操作</th><td class="bad">79.87%</td><td class="bad">78.94%</td><td class="bad">79.67%</td><td class="bad">79.74%</td><td class="bad">79.99%</td><td class="bad">79.54%</td><td class="bad">79.99%</td><td class="bad">79.92%</td><td class="good">80.35%</td><td class="good">80.72%</td><td class="avg bad">79.87%</td></tr><tr><th>网络管理</th><td class="muted">--</td><td class="bad">64.93%</td><td class="bad">65.15%</td><td class="bad">71.90%</td><td class="bad">75.40%</td><td class="bad">75.31%</td><td class="bad">75.24%</td><td class="bad">74.46%</td><td class="bad">72.57%</td><td class="bad">74.44%</td><td class="avg bad">64.93%</td></tr><tr><th>智慧运力</th><td class="bad">72.67%</td><td class="bad">72.63%</td><td class="bad">72.26%</td><td class="bad">71.90%</td><td class="bad">71.55%</td><td class="bad">69.93%</td><td class="bad">69.35%</td><td class="bad">66.00%</td><td class="bad">74.21%</td><td class="bad">78.27%</td><td class="avg bad">72.67%</td></tr><tr><th>客户渠道</th><td class="bad">72.48%</td><td class="bad">72.35%</td><td class="bad">71.86%</td><td class="bad">71.69%</td><td class="bad">77.56%</td><td class="bad">79.78%</td><td class="bad">79.12%</td><td class="bad">79.15%</td><td class="bad">77.58%</td><td class="bad">76.34%</td><td class="avg bad">72.48%</td></tr><tr><th>财务结算</th><td class="bad">75.88%</td><td class="bad">75.85%</td><td class="bad">76.79%</td><td class="bad">77.56%</td><td class="bad">77.51%</td><td class="bad">77.50%</td><td class="bad">78.62%</td><td class="good">80.30%</td><td class="good">82.25%</td><td class="good">83.37%</td><td class="avg bad">75.88%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="legend">累计覆盖率 = (Σ 总字节 − Σ 未覆盖字节) / Σ 总字节，按周递增；&ge;80% 绿（达标）、&lt;80% 红（未达标）。</p>
+  </main>
+</body>
+</html>
