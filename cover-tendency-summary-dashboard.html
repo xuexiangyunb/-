@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="测试同学">
+  <title>产研一部-版本覆盖率汇总看板</title>
+  <style>
+    body { margin:0; background:#f4f6f8; color:#27313b; font-family:"Microsoft YaHei",Arial,sans-serif; }
+    header { padding:22px 30px; background:#fff; border-bottom:1px solid #d9e0e7; }
+    main { padding:24px 30px 40px; }
+    h1 { margin:0; font-size:24px; }
+    h2 { margin:24px 0 14px; font-size:18px; }
+    .meta { margin:0 0 18px; color:#667085; font-size:13px; }
+    .summary { display:flex; gap:12px; margin:0 0 22px; flex-wrap:wrap; }
+    .metric { background:#fff; border:1px solid #d9e0e7; padding:13px 18px; min-width:170px; }
+    .metric span { display:block; color:#667085; font-size:12px; margin-bottom:6px; }
+    .metric strong { font-size:22px; color:#27313b; }
+    .table-wrap { overflow-x:auto; background:#fff; border:1px solid #d9e0e7; margin-bottom:24px; }
+    table { border-collapse:collapse; min-width:1100px; width:100%; }
+    th, td { border:1px solid #d9e0e7; padding:10px 9px; text-align:center; white-space:nowrap; }
+    thead th { background:#eef2f5; font-weight:700; }
+    .group-head th { background:#dde6ef !important; font-weight:700; color:#0f766e; }
+    thead th:first-child, tbody th { text-align:left; padding-left:16px; color:#078b87; font-weight:700; background:#f7f8fa; }
+    tbody tr:nth-child(even) td, tbody tr:nth-child(even) th { background:#f7fafb; }
+    tbody tr.summary-row th { color:#0f766e; }
+    tbody tr.summary-row td { background:#eef4fa; font-weight:700; }
+    .good { color:#16803c; background:#eaf7ee; font-weight:700; }
+    .warn { color:#b76e00; background:#fff7e6; font-weight:700; }
+    .bad { color:#d92d20; background:#fff0ef; font-weight:700; }
+    .muted { color:#8b96a3; background:#fafbfc; }
+    .legend { color:#667085; font-size:12px; }
+    @media (max-width:800px) { header, main { padding-left:14px; padding-right:14px; } }
+  </style>
+</head>
+<body>
+  <header><h1>产研一部-版本覆盖率汇总看板</h1></header>
+  <main>
+    <p class="meta">数据源：问天平台 <code>/walkin/coverageData/summary</code> 接口；workspace = <strong>产研一部</strong>；taskType = <strong>增量</strong>；累计区间 <strong>2026-07-01 ~ 2026-08-31</strong>（接口本身返回累计值，换时间查询即可获得不同区间累计）。字节覆盖率色阶：&ge;80% 绿、&ge;70% 黄、&lt;70% 红；行覆盖率色阶：&ge;75% 绿、&ge;65% 黄、&lt;65% 红。</p>
+    
+    <div class="summary">
+      <div class="metric"><span>查询区间</span><strong>2026-07-01 ~ 2026-08-31</strong></div>
+      <div class="metric"><span>产研一部 字节覆盖率</span><strong class="warn">73.18%</strong></div>
+      <div class="metric"><span>产研一部 行覆盖率</span><strong class="warn">73.83%</strong></div>
+      <div class="metric"><span>已覆盖字节</span><strong>1,205,477</strong></div>
+      <div class="metric"><span>未覆盖字节</span><strong>441,880</strong></div>
+      <div class="metric"><span>总字节数</span><strong>1,647,357</strong></div>
+    </div>
+
+    <h2>各部门累计覆盖率明细</h2>
+    <div class="table-wrap"><table>
+      <thead>
+        <tr class="group-head">
+          <th rowspan="2">部门 / 项目</th>
+          <th colspan="4">行覆盖</th>
+          <th colspan="4">字节覆盖</th>
+        </tr>
+        <tr>
+          <th>总行数</th><th>已覆盖行数</th><th>未覆盖行数</th><th>行覆盖率</th>
+          <th>总字节数</th><th>已覆盖字节</th><th>未覆盖字节</th><th>字节覆盖率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th>服务质量</th><td>75,120</td><td>55,693</td><td>19,427</td><td class="warn">74.14%</td><td>386,331</td><td>281,014</td><td>105,317</td><td class="warn">72.74%</td></tr><tr><th>中心操作</th><td>81,522</td><td>65,411</td><td>16,111</td><td class="good">80.24%</td><td>404,498</td><td>325,745</td><td>78,753</td><td class="good">80.53%</td></tr><tr><th>网络管理</th><td>50,154</td><td>32,334</td><td>17,820</td><td class="bad">64.47%</td><td>248,581</td><td>158,031</td><td>90,550</td><td class="bad">63.57%</td></tr><tr><th>智慧运力</th><td>33,282</td><td>24,134</td><td>9,148</td><td class="warn">72.51%</td><td>166,239</td><td>120,155</td><td>46,084</td><td class="warn">72.28%</td></tr><tr><th>客户渠道</th><td>48,522</td><td>35,555</td><td>12,967</td><td class="warn">73.28%</td><td>236,126</td><td>169,551</td><td>66,575</td><td class="warn">71.81%</td></tr><tr><th>财务结算</th><td>40,451</td><td>29,795</td><td>10,656</td><td class="warn">73.66%</td><td>205,582</td><td>150,981</td><td>54,601</td><td class="warn">73.44%</td></tr>
+        <tr class="summary-row"><th>产研一部汇总</th><td>329,051</td><td>242,922</td><td>86,129</td><td class="warn">73.83%</td><td>1,647,357</td><td>1,205,477</td><td>441,880</td><td class="warn">73.18%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="legend">合并说明：智能设备项目的字节/行数据已合并到「中心操作」展示（原接口独立列出）。</p>
+  </main>
+</body>
+</html>
