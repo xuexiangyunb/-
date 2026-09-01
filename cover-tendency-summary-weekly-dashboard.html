@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="测试同学">
-  <title>产研一部-版本覆盖率分周累计看板</title>
+  <title>产研一部-版本覆盖率看板（周维度 + 累计维度）</title>
   <style>
     body { margin:0; background:#f4f6f8; color:#27313b; font-family:"Microsoft YaHei",Arial,sans-serif; }
     header { padding:22px 30px; background:#fff; border-bottom:1px solid #d9e0e7; }
@@ -13,7 +13,7 @@
     h2 { margin:24px 0 14px; font-size:18px; }
     .meta { margin:0 0 18px; color:#667085; font-size:13px; }
     .summary { display:flex; gap:12px; margin:0 0 22px; flex-wrap:wrap; }
-    .metric { background:#fff; border:1px solid #d9e0e7; padding:13px 18px; min-width:170px; }
+    .metric { background:#fff; border:1px solid #d9e0e7; padding:13px 18px; min-width:200px; }
     .metric span { display:block; color:#667085; font-size:12px; margin-bottom:6px; }
     .metric strong { font-size:22px; color:#27313b; }
     .table-wrap { overflow-x:auto; background:#fff; border:1px solid #d9e0e7; margin-bottom:24px; }
@@ -32,30 +32,45 @@
     .muted { color:#8b96a3; background:#fafbfc; }
     .avg { background:#eef2f5; font-weight:700; }
     .legend { color:#667085; font-size:12px; }
+    .view-tag { display:inline-block; padding:2px 8px; margin-right:6px; border-radius:4px; font-size:12px; font-weight:600; vertical-align:middle; }
+    .view-weekly { background:#e0f2fe; color:#075985; }
+    .view-cumulative { background:#fef3c7; color:#92400e; }
     @media (max-width:800px) { header, main { padding-left:14px; padding-right:14px; } }
   </style>
 </head>
 <body>
-  <header><h1>产研一部-版本覆盖率分周累计看板</h1></header>
+  <header><h1>产研一部-版本覆盖率看板（周维度 + 累计维度）</h1></header>
   <main>
-    <p class="meta">数据源：问天平台 <code>/walkin/coverageData/summary</code> 接口；workspace = <strong>产研一部</strong>；taskType = <strong>增量</strong>；<strong>每周调用一次：startDate 固定为 2026-07-01，endDate 为该周周日；脚本再按字节加权累计算出累计覆盖率</strong>。色阶：&ge;80% 绿、&ge;70% 黄、&lt;70% 红；合并说明：智能设备合并到中心操作。</p>
+    <p class="meta">数据源：问天平台 <code>/walkin/coverageData/summary</code> 接口；workspace = <strong>产研一部</strong>；taskType = <strong>增量</strong>；<strong>每周调用一次接口</strong>（startDate 固定为 2026-07-01，endDate 为该周周日）。色阶：&ge;80% 绿、&ge;70% 黄、&lt;70% 红；合并说明：智能设备合并到中心操作。</p>
     
     <div class="summary">
-      <div class="metric"><span>最新累计周</span><strong>W36</strong></div>
-      <div class="metric"><span>字节累计覆盖率</span><strong class="warn">72.37%</strong></div>
-      <div class="metric"><span>行累计覆盖率</span><strong class="bad">52.66%</strong></div>
+      <div class="metric"><span>最新周</span><strong>W36</strong></div>
+      <div class="metric"><span>周维度 · 字节率（汇总）</span><strong class="bad">55.10%</strong></div>
+      <div class="metric"><span>周维度 · 行率（汇总）</span><strong class="bad">54.22%</strong></div>
+      <div class="metric"><span>累计维度 · 字节率（汇总）</span><strong class="warn">72.40%</strong></div>
+      <div class="metric"><span>累计维度 · 行率（汇总）</span><strong class="bad">54.22%</strong></div>
       <div class="metric"><span>累计起点</span><strong>2026-07-01</strong></div>
     </div>
 
-    <h2>部门 × 周 累计字节覆盖率矩阵（最新周在左）</h2>
+    <h2><span class="view-tag view-weekly">周维度</span>部门 × 周 当周字节覆盖率（接口直接返回）</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>中心 / 部门</th><th><div class="week">W36</div><div class="date">2026-08-31 ~ 2026-09-06</div></th><th><div class="week">W35</div><div class="date">2026-08-24 ~ 2026-08-30</div></th><th><div class="week">W34</div><div class="date">2026-08-17 ~ 2026-08-23</div></th><th><div class="week">W33</div><div class="date">2026-08-10 ~ 2026-08-16</div></th><th><div class="week">W32</div><div class="date">2026-08-03 ~ 2026-08-09</div></th><th><div class="week">W31</div><div class="date">2026-07-27 ~ 2026-08-02</div></th><th><div class="week">W30</div><div class="date">2026-07-20 ~ 2026-07-26</div></th><th><div class="week">W29</div><div class="date">2026-07-13 ~ 2026-07-19</div></th><th><div class="week">W28</div><div class="date">2026-07-06 ~ 2026-07-12</div></th><th><div class="week">W27</div><div class="date">2026-07-01 ~ 2026-07-05</div></th><th>末周</th></tr></thead>
+      <tbody>
+        <tr class="summary-row"><th>产研一部汇总</th><td class="bad">55.10%</td><td class="warn">73.20%</td><td class="bad">66.73%</td><td class="bad">68.23%</td><td class="warn">77.16%</td><td class="warn">74.82%</td><td class="warn">75.12%</td><td class="warn">76.17%</td><td class="warn">75.77%</td><td class="warn">74.25%</td><td class="avg bad">55.10%</td></tr>
+        <tr><th>服务质量</th><td class="warn">75.57%</td><td class="warn">74.10%</td><td class="warn">77.64%</td><td class="warn">72.44%</td><td class="warn">75.78%</td><td class="warn">71.09%</td><td class="bad">68.32%</td><td class="warn">78.49%</td><td class="warn">73.79%</td><td class="warn">70.43%</td><td class="avg warn">75.57%</td></tr><tr><th>中心操作</th><td class="bad">17.15%</td><td class="warn">79.43%</td><td class="good">82.80%</td><td class="warn">78.46%</td><td class="good">85.06%</td><td class="good">81.17%</td><td class="warn">79.80%</td><td class="warn">79.01%</td><td class="good">80.67%</td><td class="warn">75.47%</td><td class="avg bad">17.15%</td></tr><tr><th>网络管理</th><td class="bad">45.73%</td><td class="bad">63.64%</td><td class="bad">37.92%</td><td class="bad">58.59%</td><td class="warn">78.17%</td><td class="warn">75.61%</td><td class="warn">78.51%</td><td class="good">81.09%</td><td class="bad">69.77%</td><td class="warn">74.97%</td><td class="avg bad">45.73%</td></tr><tr><th>智慧运力</th><td class="good">81.75%</td><td class="warn">76.23%</td><td class="warn">74.91%</td><td class="warn">74.44%</td><td class="warn">78.09%</td><td class="warn">71.31%</td><td class="warn">79.47%</td><td class="bad">51.90%</td><td class="bad">69.71%</td><td class="good">82.35%</td><td class="avg good">81.75%</td></tr><tr><th>客户渠道</th><td class="good">92.53%</td><td class="warn">73.84%</td><td class="warn">72.78%</td><td class="bad">58.55%</td><td class="bad">62.59%</td><td class="good">82.30%</td><td class="warn">79.02%</td><td class="good">87.26%</td><td class="good">84.32%</td><td class="warn">74.50%</td><td class="avg good">92.53%</td></tr><tr><th>财务结算</th><td class="warn">79.03%</td><td class="warn">72.34%</td><td class="warn">72.19%</td><td class="warn">77.86%</td><td class="warn">77.58%</td><td class="bad">67.84%</td><td class="warn">74.56%</td><td class="warn">70.88%</td><td class="warn">76.26%</td><td class="warn">73.32%</td><td class="avg warn">79.03%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="legend">W27=7月1号~7月5号、W28=7月6号~7月12号 …… W36=8月31号~9月6号。每个 cell 是该周当周新增/变动字节的覆盖率。</p>
+
+    <h2><span class="view-tag view-cumulative">累计维度</span>部门 × 周 累计字节覆盖率（按字节加权累计）</h2>
     <div class="table-wrap"><table>
       <thead><tr><th>中心 / 部门</th><th><div class="week">W36</div><div class="date">2026-08-31 ~ 2026-09-06</div></th><th><div class="week">W35</div><div class="date">2026-08-24 ~ 2026-08-30</div></th><th><div class="week">W34</div><div class="date">2026-08-17 ~ 2026-08-23</div></th><th><div class="week">W33</div><div class="date">2026-08-10 ~ 2026-08-16</div></th><th><div class="week">W32</div><div class="date">2026-08-03 ~ 2026-08-09</div></th><th><div class="week">W31</div><div class="date">2026-07-27 ~ 2026-08-02</div></th><th><div class="week">W30</div><div class="date">2026-07-20 ~ 2026-07-26</div></th><th><div class="week">W29</div><div class="date">2026-07-13 ~ 2026-07-19</div></th><th><div class="week">W28</div><div class="date">2026-07-06 ~ 2026-07-12</div></th><th><div class="week">W27</div><div class="date">2026-07-01 ~ 2026-07-05</div></th><th>末周累计</th></tr></thead>
       <tbody>
-        <tr class="summary-row"><th>产研一部汇总</th><td class="warn">72.37%</td><td class="warn">73.18%</td><td class="warn">73.17%</td><td class="warn">74.25%</td><td class="warn">75.51%</td><td class="warn">75.20%</td><td class="warn">75.36%</td><td class="warn">75.49%</td><td class="warn">75.08%</td><td class="warn">74.25%</td><td class="avg warn">72.37%</td></tr>
-        <tr><th>服务质量</th><td class="warn">72.74%</td><td class="warn">72.74%</td><td class="warn">72.43%</td><td class="warn">71.95%</td><td class="warn">71.92%</td><td class="warn">70.97%</td><td class="warn">70.89%</td><td class="warn">73.36%</td><td class="warn">71.92%</td><td class="warn">70.43%</td><td class="avg warn">72.74%</td></tr><tr><th>中心操作</th><td class="warn">76.80%</td><td class="good">80.56%</td><td class="good">80.73%</td><td class="good">80.74%</td><td class="good">81.32%</td><td class="good">80.74%</td><td class="good">80.57%</td><td class="good">80.77%</td><td class="good">80.62%</td><td class="warn">77.48%</td><td class="avg warn">76.80%</td></tr><tr><th>网络管理</th><td class="bad">63.21%</td><td class="bad">63.57%</td><td class="bad">63.56%</td><td class="warn">71.36%</td><td class="warn">75.74%</td><td class="warn">75.63%</td><td class="warn">75.64%</td><td class="warn">74.55%</td><td class="warn">71.09%</td><td class="warn">74.97%</td><td class="avg bad">63.21%</td></tr><tr><th>智慧运力</th><td class="warn">72.32%</td><td class="warn">72.28%</td><td class="warn">71.84%</td><td class="warn">71.38%</td><td class="warn">70.91%</td><td class="bad">68.86%</td><td class="bad">67.59%</td><td class="bad">62.35%</td><td class="warn">72.42%</td><td class="good">82.35%</td><td class="avg warn">72.32%</td></tr><tr><th>客户渠道</th><td class="warn">71.98%</td><td class="warn">71.81%</td><td class="warn">71.04%</td><td class="warn">70.67%</td><td class="warn">77.55%</td><td class="good">80.47%</td><td class="warn">79.78%</td><td class="good">80.24%</td><td class="warn">77.53%</td><td class="warn">74.50%</td><td class="avg warn">71.98%</td></tr><tr><th>财务结算</th><td class="warn">73.49%</td><td class="warn">73.44%</td><td class="warn">73.79%</td><td class="warn">74.12%</td><td class="warn">73.37%</td><td class="warn">72.34%</td><td class="warn">73.82%</td><td class="warn">73.25%</td><td class="warn">74.36%</td><td class="warn">73.32%</td><td class="avg warn">73.49%</td></tr>
+        <tr class="summary-row"><th>产研一部汇总</th><td class="warn">72.40%</td><td class="warn">73.18%</td><td class="warn">73.17%</td><td class="warn">74.25%</td><td class="warn">75.51%</td><td class="warn">75.20%</td><td class="warn">75.36%</td><td class="warn">75.49%</td><td class="warn">75.08%</td><td class="warn">74.25%</td><td class="avg warn">72.40%</td></tr>
+        <tr><th>服务质量</th><td class="warn">72.74%</td><td class="warn">72.74%</td><td class="warn">72.43%</td><td class="warn">71.95%</td><td class="warn">71.92%</td><td class="warn">70.97%</td><td class="warn">70.89%</td><td class="warn">73.36%</td><td class="warn">71.92%</td><td class="warn">70.43%</td><td class="avg warn">72.74%</td></tr><tr><th>中心操作</th><td class="warn">76.86%</td><td class="good">80.56%</td><td class="good">80.73%</td><td class="good">80.74%</td><td class="good">81.32%</td><td class="good">80.74%</td><td class="good">80.57%</td><td class="good">80.77%</td><td class="good">80.62%</td><td class="warn">77.48%</td><td class="avg warn">76.86%</td></tr><tr><th>网络管理</th><td class="bad">63.21%</td><td class="bad">63.57%</td><td class="bad">63.56%</td><td class="warn">71.36%</td><td class="warn">75.74%</td><td class="warn">75.63%</td><td class="warn">75.64%</td><td class="warn">74.55%</td><td class="warn">71.09%</td><td class="warn">74.97%</td><td class="avg bad">63.21%</td></tr><tr><th>智慧运力</th><td class="warn">72.32%</td><td class="warn">72.28%</td><td class="warn">71.84%</td><td class="warn">71.38%</td><td class="warn">70.91%</td><td class="bad">68.86%</td><td class="bad">67.59%</td><td class="bad">62.35%</td><td class="warn">72.42%</td><td class="good">82.35%</td><td class="avg warn">72.32%</td></tr><tr><th>客户渠道</th><td class="warn">71.98%</td><td class="warn">71.81%</td><td class="warn">71.04%</td><td class="warn">70.67%</td><td class="warn">77.55%</td><td class="good">80.47%</td><td class="warn">79.78%</td><td class="good">80.24%</td><td class="warn">77.53%</td><td class="warn">74.50%</td><td class="avg warn">71.98%</td></tr><tr><th>财务结算</th><td class="warn">73.49%</td><td class="warn">73.44%</td><td class="warn">73.79%</td><td class="warn">74.12%</td><td class="warn">73.37%</td><td class="warn">72.34%</td><td class="warn">73.82%</td><td class="warn">73.25%</td><td class="warn">74.36%</td><td class="warn">73.32%</td><td class="avg warn">73.49%</td></tr>
       </tbody>
     </table></div>
-    <p class="legend">每个 cell 是从 2026-07-01 起至该周结束的全量字节加权累计覆盖率（每周接口返回该周累计字节数，脚本再做字节加权累计）。</p>
+    <p class="legend">每个 cell 是从 2026-07-01 起至该周结束的字节加权累计覆盖率（脚本对每周接口返回的字节数做 Σ 总字节、Σ 未覆盖字节，再算比率）。</p>
   </main>
 </body>
 </html>
